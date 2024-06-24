@@ -58,7 +58,7 @@ namespace School.Data.Repositories.Mocks
             };
 
             this.context.Asientos.Add(asientoToAdd);
-            this.context.SaveChanges(); 
+            this.context.SaveChanges();
         }
 
         public Asiento ObtenerPorId(int asientoId)
@@ -93,8 +93,9 @@ namespace School.Data.Repositories.Mocks
         private void CargarDatos()
         {
 
-
-            List<Asiento> asientos = new List<Asiento>()
+            if (!this.context.Asientos.Any())
+            {
+                List<Asiento> asientos = new List<Asiento>()
             {
                 new Asiento()
                 {
@@ -130,8 +131,13 @@ namespace School.Data.Repositories.Mocks
                 }
             };
 
-            this.context.Asientos.AddRange(asientos);
-            this.context.SaveChanges();
+
+                this.context.Asientos.AddRange(asientos);
+                this.context.SaveChanges();
+            }
+
+
+
         }
 
         private bool EsAsientoNull(Asiento asiento)
@@ -147,6 +153,12 @@ namespace School.Data.Repositories.Mocks
         private bool ExisteAsiento(int asientoId, int busId)
         {
             return this.context.Asientos.Any(cd => cd.AsientoId == asientoId && cd.BusId == busId);
+        }
+
+        private void LimpiarDatos(List<Asiento> asientos)
+        {
+            this.context.Asientos.RemoveRange(asientos);
+            this.context.SaveChanges();
         }
     }
 }
