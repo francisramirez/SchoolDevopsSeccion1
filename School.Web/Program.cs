@@ -11,6 +11,7 @@ builder.Services.AddDbContext<BoletosContext>(options => options.UseInMemoryData
 
 builder.Services.AddScoped<IAsientoRepository, MockAsientoRepository>();
 
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
