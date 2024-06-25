@@ -12,11 +12,6 @@ namespace School.Data.Context
                 
         }
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseInMemoryDatabase("BoletoBus");
-        //    base.OnConfiguring(optionsBuilder);
-        //}
         public DbSet<Asiento> Asientos { get; set; }
     }
 }
