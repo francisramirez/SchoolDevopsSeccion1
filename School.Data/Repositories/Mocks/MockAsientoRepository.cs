@@ -48,7 +48,9 @@ namespace School.Data.Repositories.Mocks
             if (ExisteAsiento(asiento.AsientoId, asiento.BusId))
                 throw new AsientoDuplicadoException($"Este asiento {asiento.AsientoId} para este bus: {asiento.BusId} se encuentra registrado.");
 
-            Asiento asientoToAdd = new Asiento()
+            
+
+             Asiento asientoToAdd = new Asiento()
             {
                 AsientoId = asiento.AsientoId,
                 BusId = asiento.BusId,

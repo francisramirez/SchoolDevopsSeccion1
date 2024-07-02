@@ -7,4 +7,5 @@ namespace School.Data.Exceptions
         public AsientoDuplicadoException(string message) : base(message) { }
         
     }
+    
 }
